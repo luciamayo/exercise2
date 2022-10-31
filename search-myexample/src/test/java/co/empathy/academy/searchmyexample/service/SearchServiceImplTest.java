@@ -1,5 +1,6 @@
 package co.empathy.academy.searchmyexample.service;
 
+import static org.apache.lucene.analysis.compound.hyphenation.TernaryTree.strcmp;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -48,5 +49,18 @@ class SearchServiceImplTest {
         SearchService searchService = new SearchServiceImpl(searchEngine);
 
         assertThrows(expectedException.getClass(), () -> searchService.search(null));
+    }
+
+    @Test
+    void givenNumVersion_whenGetVersion_thenReturnNonZeroNumFound()
+    {
+        SearchEngine searchEngine = mock(SearchEngine.class);
+        given(searchEngine.getVersion()).willReturn("2.15.2");
+
+        SearchService searchService = new SearchServiceImpl(searchEngine);
+
+        String numVersion = searchService.getVersion();
+
+        assertEquals("2.15.2", numVersion);
     }
 }

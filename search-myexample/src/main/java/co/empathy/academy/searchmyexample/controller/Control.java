@@ -1,7 +1,7 @@
 package co.empathy.academy.searchmyexample.controller;
 
 
-import co.empathy.academy.searchmyexample.service.ElasticService;
+import co.empathy.academy.searchmyexample.service.SearchEngine;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 
 public class Control {
-    private ElasticService elastic;
+    private SearchEngine elastic;
 
-    public Control(ElasticService elastic){
+    public Control(SearchEngine elastic){
         this.elastic = elastic;
     }
 

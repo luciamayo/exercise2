@@ -17,4 +17,10 @@ public class SearchServiceImpl implements SearchService {
 
         return searchEngine.search(query);
     }
+
+    @Override
+    public String getVersion() {
+
+        return searchEngine.getVersion();
+    }
 }
